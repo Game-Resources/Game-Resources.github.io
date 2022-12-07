@@ -7,7 +7,7 @@
 <meta content="width=device-width" name="viewport">
 <title><!-- #BeginEditable "doctitle" -->[Title]( | [GameName])<!-- #EndEditable -->
  | ゲームリソース</title>
-<link href="../Game/Game/PokemonGO/Raid/Egg/fabric.min.css" rel="stylesheet" />
+<link href="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-core/11.0.0/css/fabric.min.css" rel="stylesheet" />
 </head>
 
 <body class="ms-Fabric" dir="ltr">
