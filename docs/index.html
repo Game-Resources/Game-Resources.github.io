@@ -1,37 +1,43 @@
 ﻿<!DOCTYPE html>
 <html lang="ja">
 
-<head>
-	<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-	<meta content="width=device-width" name="viewport">
-	<title>ゲームリソース</title>
-	<link href="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-core/11.0.0/css/fabric.min.css"
-		rel="stylesheet" />
-</head>
+    <head>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta content="width=device-width" name="viewport">
+        <title>ゲームリソース</title>
+        <link
+            href="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-core/11.0.0/css/fabric.min.css"
+            rel="stylesheet" />
+        <link rel="stylesheet" href="style.css">
+    </head>
 
-<body class="ms-Fabric" dir="ltr">
+    <body class="ms-Fabric" dir="ltr">
+        <header>
+        </header>
+        <nav>
+            <button onclick="ShowGameList()">
+                ゲームリスト
+            </button>
+            <button onclick="ShowAbout()">
+                について
+            </button>
+            <button onclick="ShowNews()">
+                ニュース
+            </button>
+        </nav>
+        <main>
+            <iframe id="mainiframe" src="Game/" width="100%" height="100%">
+            </iframe>
+        </main>
+        <footer>
+            <p>
+                <a
+                    href="https://github.com/Game-Resources/Game-Resources.github.io/issues">
+                    問題を報告
+                </a>
+            </p>
+        </footer>
 
-	<h1>ゲームリソース</h1>
-	<p>ゲームの便利な資料</p>
-	<div class="ms-Grid">
-		<div class="ms-Grid-row">
-			<div class="ms-Grid-col ms-lg2">
-				<div class="ms-depth-8">
-					📓<a href="About/">このサイトについて</a></div>
-			</div>
-			<div class="ms-Grid-col ms-lg2">
-				<div class="ms-depth-8">
-					🎮<a href="Game/">ゲームリスト</a></div>
-			</div>
-			<div class="ms-Grid-col ms-lg2">
-				<div class="ms-depth-8">
-					📰<a href="https://Game-Resources.github.io/Post/categories/#general">投稿</a></div>
-			</div>
-			<br>
-		</div>
-	</div>
-
-	<p><a href="https://github.com/Game-Resources/Game-Resources.github.io/issues">問題を報告</a></p>
-</body>
-
+    </body>
+    <script src="script.js"></script>
 </html>

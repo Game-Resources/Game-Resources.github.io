@@ -1,0 +1,34 @@
+header {
+    width: 100%;
+    height: auto;
+}
+main {
+    width: 100%;
+    height: 90vh;
+}
+
+nav {
+    width: 100%;
+    height: auto;
+
+    display:flex;
+    justify-content: center;
+}
+
+footer {
+    width: 100%;
+    height: auto;
+}
+
+button {
+    background-color: #008080;
+    border: 0px;
+    color: white;
+    height: 24px;
+    width: 30vw;
+    cursor: pointer;
+}
+
+iframe {
+    border: 0px;
+}
