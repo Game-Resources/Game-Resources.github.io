@@ -8,7 +8,42 @@
         <link
             href="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-core/11.0.0/css/fabric.min.css"
             rel="stylesheet" />
-        <link rel="stylesheet" href="style.css">
+        <style>
+            header {
+                width: 100%;
+                height: auto;
+            }
+            main {
+                width: 100%;
+                height: 80vh;
+            }
+
+            nav {
+                width: 100%;
+                height: auto;
+
+                display:flex;
+                justify-content: center;
+            }
+
+            footer {
+                width: 100%;
+                height: auto;
+            }
+
+            button {
+                background-color: #008080;
+                border: 0px;
+                color: white;
+                height: 24px;
+                width: 30vw;
+                cursor: pointer;
+            }
+
+            iframe {
+                border: 0px;
+            }
+        </style>
     </head>
 
     <body class="ms-Fabric" dir="ltr">
@@ -42,5 +77,15 @@
         </footer>
 
     </body>
-    <script src="script.js"></script>
+    <script>
+        function ShowGameList() {
+            document.getElementById("mainiframe").src = "Game/"
+        }
+        function ShowAbout() {
+            document.getElementById("mainiframe").src = "About/"
+        }
+        function ShowNews() {
+            document.getElementById("mainiframe").src = "https://game-resources.github.io/Post/categories/#general"
+        }
+    </script>
 </html>
