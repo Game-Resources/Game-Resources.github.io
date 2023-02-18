@@ -8,6 +8,7 @@
         <link
             href="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-core/11.0.0/css/fabric.min.css"
             rel="stylesheet" />
+        <link rel="shortcut icon" href="favicon.png">
         <style>
             header {
                 width: 100%;
@@ -15,7 +16,7 @@
             }
             main {
                 width: 100%;
-                height: 80vh;
+                height: 85vh;
             }
 
             nav {
@@ -43,15 +44,15 @@
             iframe {
                 border: 0px;
             }
+
+            .BackButton {
+                width: auto;
+            }
         </style>
     </head>
 
     <body class="ms-Fabric" dir="ltr">
-        <header>
-            <h1>
-                ゲームリソース
-            </h1>
-        </header>
+        
         <nav>
             <button onclick="ShowGameList()">
                 ゲームリスト
@@ -63,6 +64,11 @@
                 ニュース
             </button>
         </nav>
+        <header>
+            <button class="BackButton" onclick="Back()">
+                戻る
+            </button>
+        </header>
         <main>
             <iframe id="mainiframe" src="Game/" width="100%" height="100%">
             </iframe>
@@ -89,6 +95,9 @@
         }
         function ShowNews() {
             document.getElementById("mainiframe").src = "https://game-resources.github.io/Post/categories/#general"
+        }
+        function Back() {
+            history.back()
         }
     </script>
 </html>
