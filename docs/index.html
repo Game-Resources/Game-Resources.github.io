@@ -17,7 +17,7 @@
 
             main {
                 width: 100%;
-                height: 85vh;
+                height: 80vh;
             }
 
             nav {
@@ -33,16 +33,12 @@
             }
 
             button {
-                background-color: hsl(180, 100%, 25%);
                 border: 0px;
-                color: white;
                 height: 44px;
-                width: 24%;
+                width: 44px;
                 cursor: pointer;
-            }
-
-            button:active {
-                background-color: hsl(180, 100%, 20%);
+                background-size: 44px;
+                background-color: white;
             }
 
             iframe {
@@ -50,15 +46,23 @@
             }
 
             .BackButton {
-                width: 44px;
-                height: 44px;
                 background-image: url(Image/BackEnabledIcon.svg);
-                background-color: white;
-                background-size: 44px;
             }
 
-            .BackButton:active {
-                background-color: white;
+            .GameButton {
+                background-image: url(Image/GameIcon.svg);
+            }
+
+            .AboutButton {
+                background-image: url(Image/AboutIcon.svg);
+            }
+
+            .NewsButton {
+                background-image: url(Image/NewsIcon.svg);
+            }
+
+            .OtherButton {
+                background-image: url(Image/OtherIcon.svg);
             }
         </style>
     </head>
@@ -75,17 +79,13 @@
             </iframe>
         </main>
         <nav>
-            <button onclick="ShowGame()">
-                ゲーム
+            <button class="GameButton" onclick="ShowGame()">
             </button>
-            <button onclick="ShowAbout()">
-                について
+            <button class="AboutButton" onclick="ShowAbout()">
             </button>
-            <button onclick="ShowNews()">
-                ニュース
+            <button class="NewsButton" onclick="ShowNews()">
             </button>
             <button class="OtherButton" onclick="ShowOther()">
-                その他
             </button>
         </nav>
         <footer>
