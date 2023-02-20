@@ -105,7 +105,8 @@
             document.getElementById("mainiframe").src = "Other/"
         }
         function Back() {
-            if ((URL(document.referrer)).hostname == "game-resources.github.io") {
+            var referrerUrl = new URL(document.referrer)
+            if (referrerUrl.hostname == "github.io") {
                 history.back()
             }
         }
