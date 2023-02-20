@@ -1,116 +1,113 @@
 ﻿<!DOCTYPE html>
 <html lang="ja">
 
-    <head>
-        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <meta content="width=device-width" name="viewport">
-        <title>ゲームリソース</title>
-        <link
-            href="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-core/11.0.0/css/fabric.min.css"
-            rel="stylesheet" />
-        <link rel="shortcut icon" href="favicon.png">
-        <style>
-            header {
-                width: 100%;
-                height: auto;
-            }
-
-            main {
-                width: 100%;
-                height: 70vh;
-            }
-
-            nav {
-                width: 100%;
-                height: 44px;
-
-                text-align: center;
-            }
-
-            footer {
-                width: 100%;
-                height: auto;
-            }
-
-            button {
-                border: 0px;
-                height: 44px;
-                width: 44px;
-                cursor: pointer;
-                background-size: 44px;
-                background-color: white;
-            }
-
-            iframe {
-                border: 0px;
-            }
-
-            .BackButton {
-                background-image: url(Image/BackEnabledIcon.svg);
-            }
-
-            .GameButton {
-                background-image: url(Image/GameIcon.svg);
-            }
-
-            .AboutButton {
-                background-image: url(Image/AboutIcon.svg);
-            }
-
-            .NewsButton {
-                background-image: url(Image/NewsIcon.svg);
-            }
-
-            .OtherButton {
-                background-image: url(Image/OtherIcon.svg);
-            }
-        </style>
-    </head>
-
-    <body class="ms-Fabric" dir="ltr">
-
-
-        <header>
-            <button class="BackButton" onclick="Back()">
-            </button>
-        </header>
-        <main>
-            <iframe id="mainiframe" src="Game/" width="100%" height="100%">
-            </iframe>
-        </main>
-        <nav>
-            <button class="GameButton" onclick="ShowGame()">
-            </button>
-            <button class="AboutButton" onclick="ShowAbout()">
-            </button>
-            <button class="NewsButton" onclick="ShowNews()">
-            </button>
-            <button class="OtherButton" onclick="ShowOther()">
-            </button>
-        </nav>
-        <footer>
-        </footer>
-    </body>
-    <script>
-        function ShowGame() {
-            document.getElementById("mainiframe").src = "Game/"
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <meta content="width=device-width" name="viewport">
+    <title>ゲームリソース</title>
+    <link href="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-core/11.0.0/css/fabric.min.css"
+        rel="stylesheet" />
+    <link rel="shortcut icon" href="favicon.png">
+    <style>
+        header {
+            width: 100%;
+            height: auto;
         }
-        function ShowAbout() {
-            document.getElementById("mainiframe").src = "About/"
+
+        main {
+            width: 100%;
+            height: 70vh;
         }
-        function ShowNews() {
-            document.getElementById("mainiframe").src = "https://game-resources.github.io/Post/categories/#general"
+
+        nav {
+            width: 100%;
+            height: 44px;
+
+            text-align: center;
         }
-        function ShowOther() {
-            document.getElementById("mainiframe").src = "Other/"
+
+        footer {
+            width: 100%;
+            height: auto;
         }
-        function Back() {
-            if (document.referrer.includes('github.io')) {
-                const referrerDomain = document.referrer.split('/')[2];
-                if (referrerDomain === 'game-resources.github.io') {
-                    window.history.back();
-                }
-            }
+
+        button {
+            border: 0px;
+            height: 44px;
+            width: 44px;
+            cursor: pointer;
+            background-size: 44px;
+            background-color: white;
         }
-    </script>
+
+        iframe {
+            border: 0px;
+        }
+
+        .BackButton {
+            background-image: url(Image/BackEnabledIcon.svg);
+        }
+
+        .GameButton {
+            background-image: url(Image/GameIcon.svg);
+        }
+
+        .AboutButton {
+            background-image: url(Image/AboutIcon.svg);
+        }
+
+        .NewsButton {
+            background-image: url(Image/NewsIcon.svg);
+        }
+
+        .OtherButton {
+            background-image: url(Image/OtherIcon.svg);
+        }
+    </style>
+</head>
+
+<body class="ms-Fabric" dir="ltr">
+
+
+    <header>
+        <button class="BackButton" onclick="Back()">
+        </button>
+    </header>
+    <main>
+        <iframe id="mainiframe" src="Game/" width="100%" height="100%">
+        </iframe>
+    </main>
+    <nav>
+        <button class="GameButton" onclick="ShowGame()">
+        </button>
+        <button class="AboutButton" onclick="ShowAbout()">
+        </button>
+        <button class="NewsButton" onclick="ShowNews()">
+        </button>
+        <button class="OtherButton" onclick="ShowOther()">
+        </button>
+    </nav>
+    <footer>
+    </footer>
+</body>
+<script>
+    function ShowGame() {
+        document.getElementById("mainiframe").src = "Game/"
+    }
+    function ShowAbout() {
+        document.getElementById("mainiframe").src = "About/"
+    }
+    function ShowNews() {
+        document.getElementById("mainiframe").src = "https://game-resources.github.io/Post/categories/#general"
+    }
+    function ShowOther() {
+        document.getElementById("mainiframe").src = "Other/"
+    }
+    function Back() {
+        window.history.back();
+        var previousPage = document.referrer;
+        console.log(previousPage);
+    }
+</script>
+
 </html>
