@@ -60,6 +60,10 @@
             background-image: url(Image/NewsIcon.svg);
         }
 
+        .SaveButton {
+            background-image: url(Image/SaveIcon.svg);
+        }
+
         .OtherButton {
             background-image: url(Image/OtherIcon.svg);
         }
@@ -84,6 +88,8 @@
         </button>
         <button class="NewsButton" onclick="ShowNews()">
         </button>
+        <button class="SaveButton" onclick="ShowSave()">
+        </button>
         <button class="OtherButton" onclick="ShowOther()">
         </button>
     </nav>
@@ -100,8 +106,12 @@
     function ShowNews() {
         document.getElementById("mainiframe").src = "https://game-resources.github.io/Post/categories/#general"
     }
+    function ShowSave() {
+        alert("この機能は開発中です。")
+        //document.getElementById("mainiframe").src = "Other/"
+    }
     function ShowOther() {
-        document.getElementById("mainiframe").src = "Other/"
+        document.getElementById("mainiframe").src = "Save/"
     }
     function Back() {
         window.history.back();
