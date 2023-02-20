@@ -89,6 +89,8 @@
         </button>
         <button class="NewsButton" onclick="ShowNews()">
         </button>
+        <button class="SaveButton" onclick="ShowSave()">
+        </button>
         <button class="OtherButton" onclick="ShowOther()">
         </button>
     </nav>
@@ -104,6 +106,10 @@
     }
     function ShowNews() {
         document.getElementById("mainiframe").src = "https://game-resources.github.io/Post/categories/#general"
+    }
+    function ShowSave() {
+        alert("この項目は、現在開発中です。")
+        //document.getElementById("mainiframe").src = ""
     }
     function ShowOther() {
         document.getElementById("mainiframe").src = "Other/"
