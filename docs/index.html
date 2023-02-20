@@ -105,9 +105,8 @@
             document.getElementById("mainiframe").src = "Other/"
         }
         function Back() {
-            var referrerUrl = new URL(document.referrer)
-            if (referrerUrl.hostname == "github.io") {
-                history.back()
+            if (document.referrer.includes('github.io')) {
+                window.history.back();
             }
         }
 
