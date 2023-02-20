@@ -79,7 +79,7 @@
         </button>
     </header>
     <main>
-        <iframe id="mainiframe" src="Game/" width="100%" height="100%">
+        <iframe id="MainIframe" src="Game/" width="100%" height="100%">
         </iframe>
     </main>
     <nav>
@@ -99,20 +99,20 @@
 </body>
 <script>
     function ShowGame() {
-        document.getElementById("mainiframe").src = "Game/"
+        document.getElementById("MainIframe").src = "Game/"
     }
     function ShowAbout() {
-        document.getElementById("mainiframe").src = "About/"
+        document.getElementById("MainIframe").src = "About/"
     }
     function ShowNews() {
-        document.getElementById("mainiframe").src = "https://game-resources.github.io/Post/categories/#general"
+        document.getElementById("MainIframe").src = "https://game-resources.github.io/Post/categories/#general"
     }
     function ShowSave() {
         alert("この項目は、現在開発中です。")
-        //document.getElementById("mainiframe").src = ""
+        //document.getElementById("MainIframe").src = ""
     }
     function ShowOther() {
-        document.getElementById("mainiframe").src = "Other/"
+        document.getElementById("MainIframe").src = "Other/"
     }
     function Back() {
         window.history.back();
