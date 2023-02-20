@@ -106,9 +106,11 @@
         }
         function Back() {
             if (document.referrer.includes('github.io')) {
-                window.history.back();
+                const referrerDomain = document.referrer.split('/')[2];
+                if (referrerDomain === 'game-resources.github.io') {
+                    window.history.back();
+                }
             }
         }
-
     </script>
 </html>
