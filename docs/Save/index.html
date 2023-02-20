@@ -13,17 +13,32 @@
     <style>
         .SaveSelectIframePanel {
             width: 100%;
-            height: 70vh;
+            height: 80vh;
         }
 
         .SaveSelectIframe {
             border: 0px;
         }
+
+        button {
+            border: 0px;
+            height: 44px;
+            width: 44px;
+            cursor: pointer;
+            background-size: 44px;
+            background-color: white;
+        }
+
+        .NextButton {
+            position: absolute;
+            right: 0;
+            background-image: url(../../Image/ForwardButtonEnabledIcon.svg);
+        }
     </style>
 </head>
 
 <body class="ms-Fabric" dir="ltr">
-    <nav></nav>
+
     <header>
         <h1>
             保存
@@ -37,13 +52,17 @@
                 </p>
             </div>
             <div class="SaveSelectIframePanel">
-                <iframe onload="SaveSelectIframeLoad()" class="SaveSelectIframe" id="SaveSelectIframe"
-                    src="../Game/" width="100%" height="100%">
+                <iframe onload="SaveSelectIframeLoad()" class="SaveSelectIframe" id="SaveSelectIframe" src="../Game/"
+                    width="100%" height="100%">
 
                 </iframe>
             </div>
         </div>
     </main>
+    <nav>
+        <button class="NextButton" onclick="Next()">
+        </button>
+    </nav>
     <footer>
     </footer>
 
@@ -51,18 +70,22 @@
         var Start = false
 
         function SaveSelectIframeLoad() {
-            
+
             if (Start) {
+                alert("別タブで開いたページをブラウザのお気に入りに登録してください。")
+
                 window.open((document.getElementById("SaveSelectIframe").contentWindow.location.href), '_blank')
 
                 document.getElementById("SaveSelectIframe").src = "../Game/"
-
-                alert("別タブで開いたページをブラウザのお気に入りに登録してください。")
 
                 Start = false
             } else {
                 Start = true
             }
+        }
+
+        function Next(){
+            location.href = "../2/"
         }
     </script>
 </body>
