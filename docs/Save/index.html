@@ -11,12 +11,12 @@
         rel="stylesheet" />
     <!--<link rel="shortcut icon" href="favicon.png">-->
     <style>
-        .SaveGameSelectIframePanel {
+        .SaveSelectIframePanel {
             width: 100%;
             height: 70vh;
         }
 
-        SaveGameSelectIframe {
+        .SaveSelectIframe {
             border: 0px;
         }
     </style>
@@ -36,9 +36,9 @@
                     保存するゲームを選択してください。
                 </p>
             </div>
-            <div class="SaveGameSelectIframePanel">
-                <iframe class="SaveGameSelectIframe" src="https://game-resources.github.io/Game/" width="100%"
-                    height="100%">
+            <div class="SaveSelectIframePanel">
+                <iframe onload="SaveSelectIframeLoad()" class="SaveSelectIframe" id="SaveSelectIframe"
+                    src="https://game-resources.github.io/Game/" width="100%" height="100%">
 
                 </iframe>
             </div>
@@ -46,6 +46,24 @@
     </main>
     <footer>
     </footer>
+
+    <script>
+        var Start = false;
+
+        function SaveSelectIframeLoad() {
+            
+            if (Start) {
+                alert(document.getElementById("SaveSelectIframe").contentWindow.location.href)
+                window.open((document.getElementById("SaveSelectIframe").contentWindow.location.href), '_blank')
+
+                document.getElementById("SaveSelectIframe").src = "https://game-resources.github.io/Game/"
+
+                Start = false
+            } else {
+                Start = true
+            }
+        }
+    </script>
 </body>
 
 </html>
