@@ -81,7 +81,7 @@
     <main>
         <div class="MainIframePanel">
             <iframe class="MainIframe" id="MainIframe" src="Game/" width="100%" height="100%">
-                
+
             </iframe>
         </div>
     </main>
@@ -118,6 +118,14 @@
     }
     function Back() {
         window.history.back()
+    }
+
+    const url = new URL(window.location.href);
+    const params = url.searchParams;
+    const parameterUrl = params.get("url")
+
+    if (!(parameterUrl == null)) {
+        document.getElementById("MainIframe").src = parameterUrl
     }
 </script>
 

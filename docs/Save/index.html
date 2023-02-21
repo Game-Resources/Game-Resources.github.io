@@ -62,28 +62,29 @@
     <footer>
     </footer>
 
-    <script>
-        var Start = false
 
-        function SaveSelectIframeLoad() {
-
-            if (Start) {
-                alert("別タブで開いたページをブラウザのお気に入りに登録してください。")
-
-                window.open((document.getElementById("SaveSelectIframe").contentWindow.location.href), '_blank')
-
-                document.getElementById("SaveSelectIframe").src = "../Game/"
-
-                Start = false
-            } else {
-                Start = true
-            }
-        }
-
-        function Next(){
-            location.href = "../2/"
-        }
-    </script>
 </body>
+<script>
+    var Start = false
+
+    function SaveSelectIframeLoad() {
+
+        if (Start) {
+            alert("別タブで開いたページをブラウザのお気に入りに登録してください。")
+
+            window.open(("https://game-resources.github.io/?url=" + (document.getElementById("SaveSelectIframe").contentWindow.location.href)), '_blank')
+
+            document.getElementById("SaveSelectIframe").src = "../Game/"
+
+            Start = false
+        } else {
+            Start = true
+        }
+    }
+
+    function Next() {
+        location.href = "../2/"
+    }
+</script>
 
 </html>
