@@ -101,32 +101,50 @@
     </footer>
 </body>
 <script>
+    var lang = "ja"
+
+    const url = new URL(window.location.href);
+    const params = url.searchParams;
+
+    const parameterUrl = params.get("url")
+    if (!(parameterUrl == null)) {
+        document.getElementById("MainIframe").src = parameterUrl
+    }
+
+    const parameterLang = params.get("lang")
+    if (!(parameterLang == null)) {
+        lang = parameterLang
+    }
+
     function ShowGame() {
-        document.getElementById("MainIframe").src = "Game/"
+        OpenUrl("https://game-resources.github.io/Game/")
     }
     function ShowAbout() {
-        document.getElementById("MainIframe").src = "About/"
+        OpenUrl("https://game-resources.github.io/About/")
     }
     function ShowNews() {
-        document.getElementById("MainIframe").src = "https://game-resources.github.io/Post/categories/#general"
+        OpenUrl("https://game-resources.github.io/https://game-resources.github.io/Post/categories/#general")
     }
     function ShowSave() {
-        document.getElementById("MainIframe").src = "Save/"
+        OpenUrl("https://game-resources.github.io/Save/")
     }
     function ShowOther() {
-        document.getElementById("MainIframe").src = "Other/"
+        OpenUrl("https://game-resources.github.io/Other/")
     }
     function Back() {
         window.history.back()
     }
-
-    const url = new URL(window.location.href);
-    const params = url.searchParams;
-    const parameterUrl = params.get("url")
-
-    if (!(parameterUrl == null)) {
-        document.getElementById("MainIframe").src = parameterUrl
+    function OpenUrl(Url) {
+        switch (lang) {
+            case "en":
+                document.getElementById("MainIframe").src = "https://translate.google.com/translate?sl=ja&tl=en&u=" + Url
+            
+            case "ja":
+                document.getElementById("MainIframe").src = Url
+        }
     }
+
+
 </script>
 
 </html>
