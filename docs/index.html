@@ -101,19 +101,12 @@
     </footer>
 </body>
 <script>
-    var lang = "ja"
-
     const url = new URL(window.location.href);
     const params = url.searchParams;
 
     const parameterUrl = params.get("url")
     if (!(parameterUrl == null)) {
         document.getElementById("MainIframe").src = parameterUrl
-    }
-
-    const parameterLang = params.get("lang")
-    if (!(parameterLang == null)) {
-        lang = parameterLang
     }
 
     function ShowGame() {
@@ -135,16 +128,8 @@
         window.history.back()
     }
     function OpenUrl(Url) {
-        console.log = lang
-        switch (lang) {
-            case "en":
-                document.getElementById("MainIframe").src = "https://translate.google.com/translate?sl=ja&tl=en&u=" + Url;
-            
-            case "ja":
-                document.getElementById("MainIframe").src = Url;
-        }
+        document.getElementById("MainIframe").src = Url;
     }
-
 
 </script>
 
