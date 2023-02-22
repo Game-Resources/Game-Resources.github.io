@@ -135,6 +135,7 @@
         window.history.back()
     }
     function OpenUrl(Url) {
+        console.log = lang
         switch (lang) {
             case "en":
                 document.getElementById("MainIframe").src = "https://translate.google.com/translate?sl=ja&tl=en&u=" + Url
