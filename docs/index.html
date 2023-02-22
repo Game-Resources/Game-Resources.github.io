@@ -32,7 +32,7 @@
             height: auto;
         }
 
-        button {
+        .Button {
             border: 0px;
             height: 44px;
             width: 44px;
@@ -65,44 +65,70 @@
             background-image: url(Image/SaveIcon.svg);
         }
 
-        .OtherButton {
-            background-image: url(Image/OtherIcon.svg);
+        .ModeSettingButton {
+            background-image: url(Image/SettingIcon.svg);
+        }
+
+        .ModeMainButton {
+            background-image: url(Image/BackEnabledIcon.svg);
+        }
+
+        .SettingPanel {
+            display: none;
         }
     </style>
 </head>
 
 <body class="ms-Fabric" dir="ltr">
-
-
-    <header>
-        <button class="BackButton" onclick="Back()">
-        </button>
-    </header>
     <main>
-        <div class="MainIframePanel">
-            <iframe class="MainIframe" id="MainIframe" src="Game/" width="100%" height="100%">
+        <div id="MainPanel">
+            <header>
+                <button class="Button BackButton" onclick="Back()">
+                </button>
+                <button class="Button ModeSettingButton" onclick="ModeSetting()">
+                </button>
+            </header>
+            <main class="MainIframePanel">
+                <iframe class="MainIframe" id="MainIframe" src="Game/" width="100%" height="100%">
 
-            </iframe>
+                </iframe>
+            </main>
+            <nav>
+                <button class="Button GameButton" onclick="ShowGame()">
+                </button>
+                <button class="Button AboutButton" onclick="ShowAbout()">
+                </button>
+                <button class="Button NewsButton" onclick="ShowNews()">
+                </button>
+                <button class="Button SaveButton" onclick="ShowSave()">
+                </button>
+            </nav>
+        </div>
+        <div id="SettingPanel">
+            <header>
+                <h1>
+                    設定
+                </h1>
+            </header>
+            <main>
+                <p>
+                    <button onclick="ReportIssue()">
+                        問題を報告
+                    </button>
+                </p>
+            </main>
+            <nav>
+                <button class="Button ModeMainButton" onclick="ModeMain()">
+                </button>
+            </nav>
         </div>
     </main>
-    <nav>
-        <button class="GameButton" onclick="ShowGame()">
-        </button>
-        <button class="AboutButton" onclick="ShowAbout()">
-        </button>
-        <button class="NewsButton" onclick="ShowNews()">
-        </button>
-        <button class="SaveButton" onclick="ShowSave()">
-        </button>
-        <button class="OtherButton" onclick="ShowOther()">
-        </button>
-    </nav>
-    <footer>
-    </footer>
 </body>
 <script>
     const url = new URL(window.location.href);
     const params = url.searchParams;
+
+    ModeMain()
 
     const parameterUrl = params.get("url")
     if (!(parameterUrl == null)) {
@@ -116,21 +142,30 @@
         OpenUrl("https://game-resources.github.io/About/")
     }
     function ShowNews() {
-        OpenUrl("https://game-resources.github.io/https://game-resources.github.io/Post/categories/#general")
+        OpenUrl("https://game-resources.github.io/Post/categories/#general")
     }
     function ShowSave() {
         OpenUrl("https://game-resources.github.io/Save/")
     }
-    function ShowOther() {
-        OpenUrl("https://game-resources.github.io/Other/")
-    }
     function Back() {
         window.history.back()
     }
+    function ReportIssue() {
+        window.open(("https://github.com/Game-Resources/Game-Resources.github.io/issues"), '_blank')
+    }
+
+    function ModeSetting() {
+        document.getElementById('SettingPanel').style.display = 'block'
+        document.getElementById('MainPanel').style.display = 'none';
+    }
+    function ModeMain() {
+        document.getElementById('SettingPanel').style.display = 'none';
+        document.getElementById('MainPanel').style.display = 'block'
+    }
+
     function OpenUrl(Url) {
         document.getElementById("MainIframe").src = Url;
     }
-
 </script>
 
 </html>
