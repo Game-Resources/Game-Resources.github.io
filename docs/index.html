@@ -20,6 +20,11 @@
             height: 75vh;
         }
 
+        .SaveIframePanel {
+            width: 100%;
+            height: 80vh;
+        }
+
         nav {
             width: 100%;
             height: 44px;
@@ -32,6 +37,14 @@
             height: auto;
         }
 
+        button {
+            border: 0px;
+            cursor: pointer;
+            height: 40px;
+            background-color: #008080;
+            color: white;
+        }
+
         .Button {
             border: 0px;
             height: 44px;
@@ -42,6 +55,10 @@
         }
 
         .MainIframe {
+            border: 0px;
+        }
+
+        .SaveIframe {
             border: 0px;
         }
 
@@ -61,7 +78,7 @@
             background-image: url(Image/NewsIcon.svg);
         }
 
-        .SaveButton {
+        .ModeSaveButton {
             background-image: url(Image/SaveIcon.svg);
         }
 
@@ -73,8 +90,8 @@
             background-image: url(Image/BackEnabledIcon.svg);
         }
 
-        .SettingPanel {
-            display: none;
+        .ModeFavoriteButton {
+            background-image: url(Image/FavoriteIcon.svg);
         }
     </style>
 </head>
@@ -85,7 +102,11 @@
             <header>
                 <button class="Button BackButton" onclick="Back()">
                 </button>
-                <button class="Button ModeSettingButton" onclick="ModeSetting()">
+                <button class="Button ModeSettingButton" onclick="ChangeMode('Setting')">
+                </button>
+                <button class="Button ModeSaveButton" onclick="ChangeMode('Save')">
+                </button>
+                <button class="Button ModeFavoriteButton" onclick="ChangeMode('Favorite')">
                 </button>
             </header>
             <main class="MainIframePanel">
@@ -100,7 +121,16 @@
                 </button>
                 <button class="Button NewsButton" onclick="ShowNews()">
                 </button>
-                <button class="Button SaveButton" onclick="ShowSave()">
+            </nav>
+        </div>
+        <div id="SavePanel">
+            <main class="SaveIframePanel">
+                <iframe class="SaveIframe" id="SaveIframe" src="Save/" width="100%" height="100%">
+
+                </iframe>
+            </main>
+            <nav>
+                <button class="Button ModeMainButton" onclick="ChangeMode('Main')">
                 </button>
             </nav>
         </div>
@@ -118,7 +148,28 @@
                 </p>
             </main>
             <nav>
-                <button class="Button ModeMainButton" onclick="ModeMain()">
+                <button class="Button ModeMainButton" onclick="ChangeMode('Main')">
+                </button>
+            </nav>
+        </div>
+        <div id="FavoritePanel">
+            <header>
+                <h1>
+                    お気に入り
+                </h1>
+            </header>
+            <main>
+                <div>
+                    <p>
+                        ブラウザのお気に入りに現在開いているゲームリソース内のページを追加するには、以下のボタンをクリックしてください。
+                    </p>
+                </div>
+                <button onclick="FavoriteAdd()">
+                    お気に入りに追加
+                </button>
+            </main>
+            <nav>
+                <button class="Button ModeMainButton" onclick="ChangeMode('Main')">
                 </button>
             </nav>
         </div>
@@ -128,7 +179,7 @@
     const url = new URL(window.location.href);
     const params = url.searchParams;
 
-    ModeMain()
+    ChangeMode('Main')
 
     const parameterUrl = params.get("url")
     if (!(parameterUrl == null)) {
@@ -144,23 +195,36 @@
     function ShowNews() {
         OpenUrl("https://game-resources.github.io/Post/categories/#general")
     }
-    function ShowSave() {
-        OpenUrl("https://game-resources.github.io/Save/")
-    }
     function Back() {
         window.history.back()
     }
     function ReportIssue() {
         window.open(("https://github.com/Game-Resources/Game-Resources.github.io/issues"), '_blank')
     }
+    function FavoriteAdd() {
+        alert("別タブで開いたページをブラウザのお気に入りに登録してください。")
 
-    function ModeSetting() {
-        document.getElementById('SettingPanel').style.display = 'block'
-        document.getElementById('MainPanel').style.display = 'none';
+        window.open(("https://game-resources.github.io/?url=" + (document.getElementById("MainIframe").contentWindow.location.href)), '_blank')
     }
-    function ModeMain() {
-        document.getElementById('SettingPanel').style.display = 'none';
-        document.getElementById('MainPanel').style.display = 'block'
+
+    function ChangeMode(mode) {
+        document.getElementById('SavePanel').style.display = 'none'
+        document.getElementById('SettingPanel').style.display = 'none'
+        document.getElementById('MainPanel').style.display = 'none'
+        document.getElementById('FavoritePanel').style.display = 'none'
+
+        if (mode == "Main") {
+            document.getElementById('MainPanel').style.display = 'block'
+        }
+        if (mode == "Setting") {
+            document.getElementById('SettingPanel').style.display = 'block'
+        }
+        if (mode == "Save") {
+            document.getElementById('SavePanel').style.display = 'block'
+        }
+        if (mode == "Favorite") {
+            document.getElementById('FavoritePanel').style.display = 'block'
+        }
     }
 
     function OpenUrl(Url) {
