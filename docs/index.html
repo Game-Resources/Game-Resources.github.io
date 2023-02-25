@@ -146,6 +146,11 @@
                         問題を報告
                     </button>
                 </p>
+                <p>
+                    <button onclick="ChangeMode('AppUpdate')">
+                        アプリを更新
+                    </button>
+                </p>
             </main>
             <nav>
                 <button class="Button ModeMainButton" onclick="ChangeMode('Main')">
@@ -166,6 +171,17 @@
                 </div>
                 <button onclick="FavoriteAdd()">
                     お気に入りに追加
+                </button>
+            </main>
+            <nav>
+                <button class="Button ModeMainButton" onclick="ChangeMode('Main')">
+                </button>
+            </nav>
+        </div>
+        <div id="AppUpdatePanel">
+            <main>
+                <button onclick="AppUpdate()">
+                    最新の状態に更新
                 </button>
             </main>
             <nav>
@@ -206,12 +222,16 @@
 
         window.open(("https://game-resources.github.io/?url=" + (document.getElementById("MainIframe").contentWindow.location.href)), '_blank')
     }
+    function AppUpdate() {
+        window.location.reload(true)
+    }
 
     function ChangeMode(mode) {
         document.getElementById('SavePanel').style.display = 'none'
         document.getElementById('SettingPanel').style.display = 'none'
         document.getElementById('MainPanel').style.display = 'none'
         document.getElementById('FavoritePanel').style.display = 'none'
+        document.getElementById('AppUpdatePanel').style.display = 'none'
 
         if (mode == "Main") {
             document.getElementById('MainPanel').style.display = 'block'
@@ -224,6 +244,9 @@
         }
         if (mode == "Favorite") {
             document.getElementById('FavoritePanel').style.display = 'block'
+        }
+        if (mode == "AppUpdate") {
+            document.getElementById('AppUpdatePanel').style.display = 'block'
         }
     }
 
