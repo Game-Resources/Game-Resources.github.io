@@ -60,10 +60,6 @@
             border: 0px;
         }
 
-        .BackButton {
-            background-image: url(Image/BackEnabledIcon.svg);
-        }
-
         .GameButton {
             background-image: url(Image/GameIcon.svg);
         }
@@ -98,7 +94,7 @@
     <main>
         <div id="MainPanel">
             <header>
-                <button class="Button BackButton" onclick="Back()">
+                <button class="Button BackButton" id="BackButton" onclick="Back()">
                 </button>
                 <button class="Button ModeSettingButton" onclick="ChangeMode('Setting')">
                 </button>
@@ -211,7 +207,9 @@
         OpenUrl("https://game-resources.github.io/Post/categories/#general")
     }
     function Back() {
-        window.history.back()
+        var iframe = document.getElementById("MainIframe");
+        var frameWindow = iframe.contentWindow;
+        frameWindow.history.back();
     }
     function ReportIssue() {
         window.open(("https://github.com/Game-Resources/Game-Resources.github.io/issues"), '_blank')
@@ -224,13 +222,8 @@
     function AppUpdate() {
         window.location.reload(true)
     }
-    function MainIframeLoad() {
-        if (window.history && window.history.pushState) {
-            console.log("可能")
-        } else {
-            console.log("不可")
-        }
 
+    function MainIframeLoad() {
     }
 
     function ChangeMode(mode) {
