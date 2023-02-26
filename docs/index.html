@@ -41,8 +41,6 @@
             border: 0px;
             cursor: pointer;
             height: 40px;
-            background-color: #008080;
-            color: white;
         }
 
         .Button {
@@ -110,7 +108,8 @@
                 </button>
             </header>
             <main class="MainIframePanel">
-                <iframe class="MainIframe" id="MainIframe" src="Game/" width="100%" height="100%">
+                <iframe onload="MainIframeLoad()" class="MainIframe" id="MainIframe" src="Game/" width="100%"
+                    height="100%">
 
                 </iframe>
             </main>
@@ -224,6 +223,14 @@
     }
     function AppUpdate() {
         window.location.reload(true)
+    }
+    function MainIframeLoad() {
+        if (window.history && window.history.pushState) {
+            console.log("可能")
+        } else {
+            console.log("不可")
+        }
+
     }
 
     function ChangeMode(mode) {
