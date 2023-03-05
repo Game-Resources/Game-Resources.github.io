@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta content="ja" http-equiv="Content-Language">
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <meta content="width=device-width" name="viewport">
+    <meta name="robots" content="noindex">
+    <title>お気に入り | ゲームリソース</title>
+    <link href="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-core/11.0.0/css/fabric.min.css"
+        rel="stylesheet" />
+    <link rel="shortcut icon" href="favicon.png">
+    <style>
+        button {
+            border: 0px;
+            cursor: pointer;
+            height: 40px;
+            color: black;
+            background-color: #d6d7d7;
+        }
+
+        .Button {
+            border: 0px;
+            height: 44px;
+            width: 44px;
+            cursor: pointer;
+            background-size: 44px;
+            background-color: white;
+        }
+
+        .CloseButton {
+            background-image: url(../Image/BackEnabledIcon.svg);
+        }
+    </style>
+</head>
+
+<body class="ms-Fabric" dir="ltr">
+    <nav></nav>
+    <div class="ToolPanel">
+        <button class="Button CloseButton" onclick="Close()">
+        </button>
+    </div>
+    <header>
+        <h1>
+            お気に入り
+        </h1>
+    </header>
+    <main>
+        <div>
+            <p>
+                ブラウザのお気に入りに現在開いているゲームリソース内のページを追加するには、以下のボタンをクリックしてください。
+            </p>
+        </div>
+        <button onclick="FavoriteAdd()">
+            お気に入りに追加
+        </button>
+    </main>
+    <footer>
+    </footer>
+</body>
+<script>
+    function Close() {
+        window.location.href = "../"
+    }
+
+    function FavoriteAdd() {
+        alert("別タブで開いたページをブラウザのお気に入りに登録してください。")
+        
+        const url = new URL(window.location.href);
+        const params = url.searchParams;
+        const parameterUrl = params.get("url")
+        window.open(("https://game-resources.github.io/?url=" + parameterUrl), '_blank')
+    }
+</script>
+
+</html>

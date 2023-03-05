@@ -9,7 +9,7 @@
     <meta name="robots" content="noindex">
     <link href="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-core/11.0.0/css/fabric.min.css"
         rel="stylesheet" />
-    <!--<link rel="shortcut icon" href="favicon.png">-->
+    <link rel="shortcut icon" href="favicon.png">
     <style>
         .SaveSelectIframePanel {
             width: 100%;
@@ -22,6 +22,14 @@
 
         button {
             border: 0px;
+            cursor: pointer;
+            height: 40px;
+            color: black;
+            background-color: #d6d7d7;
+        }
+
+        .Button {
+            border: 0px;
             height: 44px;
             width: 44px;
             cursor: pointer;
@@ -29,16 +37,18 @@
             background-color: white;
         }
 
-        .NextButton {
-            position: absolute;
-            right: 0;
-            background-image: url(../../Image/ForwardButtonEnabledIcon.svg);
+        .CloseButton {
+            background-image: url(../Image/BackEnabledIcon.svg);
         }
     </style>
 </head>
 
 <body class="ms-Fabric" dir="ltr">
     <nav></nav>
+    <div class="ToolPanel">
+        <button class="Button CloseButton" onclick="Close()">
+        </button>
+    </div>
     <header>
         <h1>
             保存
@@ -61,11 +71,13 @@
     </main>
     <footer>
     </footer>
-
-
 </body>
 <script>
     var Start = false
+
+    function Close() {
+        window.location.href = "../"
+    }
 
     function SaveSelectIframeLoad() {
 
@@ -80,10 +92,6 @@
         } else {
             Start = true
         }
-    }
-
-    function Next() {
-        location.href = "../2/"
     }
 </script>
 

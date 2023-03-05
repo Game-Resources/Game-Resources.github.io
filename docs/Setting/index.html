@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta content="ja" http-equiv="Content-Language">
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <meta content="width=device-width" name="viewport">
+    <meta name="robots" content="noindex">
+    <title>設定 | ゲームリソース</title>
+    <link href="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-core/11.0.0/css/fabric.min.css"
+        rel="stylesheet" />
+    <link rel="shortcut icon" href="favicon.png">
+    <style>
+        button {
+            border: 0px;
+            cursor: pointer;
+            height: 40px;
+            color: black;
+            background-color: #d6d7d7;
+        }
+
+        .Button {
+            border: 0px;
+            height: 44px;
+            width: 44px;
+            cursor: pointer;
+            background-size: 44px;
+            background-color: white;
+        }
+
+        .CloseButton {
+            background-image: url(../Image/BackEnabledIcon.svg);
+        }
+    </style>
+</head>
+
+<body class="ms-Fabric" dir="ltr">
+    <nav></nav>
+    <div class="ToolPanel">
+        <button class="Button CloseButton" onclick="Close()">
+        </button>
+    </div>
+    <header>
+        <h1>
+            設定
+        </h1>
+    </header>
+    <main>
+        <p>
+            <button onclick="ReportIssue()">
+                問題を報告
+            </button>
+        </p>
+        <p>
+            <button onclick="OpenAppUpdate()">
+                アプリを更新
+            </button>
+        </p>
+    </main>
+    <footer>
+    </footer>
+</body>
+<script>
+    function Close() {
+        window.location.href = "../"
+    }
+    
+    function ReportIssue() {
+        window.open(("https://github.com/Game-Resources/Game-Resources.github.io/issues"), '_blank')
+    }
+
+    function OpenAppUpdate() {
+        window.location.href = "AppUpdate/"
+    }
+</script>
+
+</html>
