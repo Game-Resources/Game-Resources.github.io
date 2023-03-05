@@ -67,6 +67,10 @@
             background-image: url(Image/BackEnabledIcon.svg);
         }
 
+        .ForwardButton {
+            background-image: url(Image/ForwardEnabledIcon.svg);
+        }
+
         .GameButton {
             background-image: url(Image/GameIcon.svg);
         }
@@ -102,6 +106,8 @@
         <div id="MainPanel">
             <div class="ToolPanel">
                 <button class="Button BackButton" id="BackButton" onclick="Back()">
+                </button>
+                <button class="Button ForwardButton" id="ForwardButton" onclick="Forward()">
                 </button>
                 <button class="Button ModeSettingButton" onclick="OpenSetting()">
                 </button>
@@ -148,6 +154,12 @@
         var iframe = document.getElementById("MainIframe");
         var frameWindow = iframe.contentWindow;
         frameWindow.history.back();
+    }
+
+    function Forward() {
+        var iframe = document.getElementById("MainIframe");
+        var frameWindow = iframe.contentWindow;
+        frameWindow.history.forward();
     }
 
     function MainIframeLoad() {
