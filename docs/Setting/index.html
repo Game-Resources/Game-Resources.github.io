@@ -46,22 +46,52 @@
         </h1>
     </header>
     <main>
-        <p>
-            <button onclick="ReportIssue()">
-                問題を報告
-            </button>
-        </p>
+        <div>
+            <h2>
+                一般
+            </h2>
+            <div>
+                <p>
+                    <button onclick="ReportIssue()">
+                        問題を報告
+                    </button>
+                </p>
+                <p>
+                    <input type="checkbox" id="KeepPage" onclick="KeepPageClick()">
+                    <label for="KeepPage">キープページ</label>
+                </p>
+            </div>
+        </div>
     </main>
     <footer>
     </footer>
 </body>
 <script>
+    var keepPageCheckbox = document.getElementById("KeepPage")
+    var keepPageChecked = keepPageCheckbox.checked
+    if (localStorage.getItem("KeepPage") == "1") {
+        keepPageCheckbox.checked = true
+    } else {
+        keepPageCheckbox.checked = false
+    }
+
     function Close() {
         window.location.href = "../"
     }
-    
+
     function ReportIssue() {
         window.open(("https://github.com/Game-Resources/Game-Resources.github.io/issues"), '_blank')
+    }
+    function KeepPageClick() {
+        var keepPageCheckbox = document.getElementById("KeepPage")
+        var keepPageChecked = keepPageCheckbox.checked
+        if (keepPageChecked) {
+            localStorage.setItem("KeepPage", "1")
+            localStorage.setItem("KeepPage.Url", "Content/Game/")
+        } else {
+            localStorage.setItem("KeepPage", "0")
+            localStorage.removeItem("KeepPage.Url")
+        }
     }
 </script>
 
