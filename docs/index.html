@@ -134,8 +134,12 @@
 </body>
 <script>
 
-    const url = new URL(window.location.href);
-    const params = url.searchParams;
+    if (localStorage.getItem("Welcome") == null) {
+        location.href = "Welcome/"
+    }
+
+    const url = new URL(window.location.href)
+    const params = url.searchParams
     const parameterUrl = params.get("url")
 
     if (!(parameterUrl == null)) {

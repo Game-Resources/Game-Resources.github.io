@@ -66,8 +66,8 @@
     function FavoriteAdd() {
         alert("別タブで開いたページをブラウザのお気に入りに登録してください。")
         
-        const url = new URL(window.location.href);
-        const params = url.searchParams;
+        const url = new URL(window.location.href)
+        const params = url.searchParams
         const parameterUrl = params.get("url")
         window.open(("https://game-resources.github.io/?url=" + parameterUrl), '_blank')
     }
