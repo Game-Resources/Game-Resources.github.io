@@ -46,10 +46,22 @@
         </h1>
     </header>
     <main>
-        <div>
-            <h2>
+        <details>
+            <summary>
                 一般
-            </h2>
+            </summary>
+            <div>
+
+                <p>
+                    <input type="checkbox" id="KeepPage" onclick="KeepPageClick()">
+                    <label for="KeepPage">キープページ</label>
+                </p>
+            </div>
+        </details>
+        <details>
+            <summary>
+                ヘルプ
+            </summary>
             <div>
                 <p>
                     <button onclick="ReportIssue()">
@@ -61,12 +73,22 @@
                         ようこそ画面を表示する
                     </button>
                 </p>
+            </div>
+        </details>
+        <details>
+            <summary>
+                データ
+            </summary>
+            <div>
                 <p>
-                    <input type="checkbox" id="KeepPage" onclick="KeepPageClick()">
-                    <label for="KeepPage">キープページ</label>
+                    <button onclick="Reset()">
+                        リセット
+                    </button>
                 </p>
             </div>
-        </div>
+
+        </details>
+
     </main>
     <footer>
     </footer>
@@ -100,6 +122,13 @@
         } else {
             localStorage.setItem("KeepPage", "0")
             localStorage.removeItem("KeepPage.Url")
+        }
+    }
+    function Reset() {
+        var result = confirm("リセット")
+        if (result == true) {
+            localStorage.clear()
+            alert("リセットされました。")
         }
     }
 </script>
