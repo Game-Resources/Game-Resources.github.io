@@ -110,6 +110,7 @@
         location.href = "ReportIssue/"
     }
     function ViewWelcome() {
+        localStorage.setItem("Welcome.NowPage", "1")
         localStorage.removeItem("Welcome")
         location.href = "../"
     }
