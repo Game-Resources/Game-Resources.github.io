@@ -1,0 +1,105 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta content="ja" http-equiv="Content-Language">
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <meta content="width=device-width" name="viewport">
+    <meta name="robots" content="noindex">
+    <title>問題を報告 | ゲームリソース</title>
+    <link href="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-core/11.0.0/css/fabric.min.css"
+        rel="stylesheet" />
+    <link rel="shortcut icon" href="../../favicon.png">
+    <style>
+        button {
+            border: 0px;
+            cursor: pointer;
+            height: 40px;
+            color: black;
+            background-color: #d6d7d7;
+        }
+
+        .Button {
+            border: 0px;
+            height: 44px;
+            width: 44px;
+            cursor: pointer;
+            background-size: 44px;
+            background-color: white;
+        }
+
+        .CloseButton {
+            background-image: url(../../Image/BackEnabledIcon.svg);
+        }
+    </style>
+</head>
+
+<body class="ms-Fabric" dir="ltr">
+    <nav></nav>
+    <div class="ToolPanel">
+        <button class="Button CloseButton" onclick="Close()">
+        </button>
+    </div>
+    <header>
+        <h1>
+            問題を報告
+        </h1>
+    </header>
+    <main>
+        <ol>
+            <li>
+                <p>
+                    <label for="IssueType">
+                        問題のタイプを選択
+                    </label>
+                    <select id="IssueType">
+                        <option>
+                            ウェブサイトに関する問題
+                        </option>
+                        <option>
+                            コンテンツに関する問題
+                        </option>
+                        <option>
+                            投稿に関する問題
+                        </option>
+                        <option>
+                            Androidアプリに関する問題
+                        </option>
+                        <option>
+                            GR編集サポートに関する問題
+                        </option>
+                    </select>
+                </p>
+            </li>
+            <li>
+                <button onclick="ReportIssue()">
+                    問題を報告
+                </button>
+            </li>
+        </ol>
+    </main>
+    <footer>
+    </footer>
+</body>
+<script>
+    function Close() {
+        window.location.href = "../"
+    }
+
+    function ReportIssue() {
+        var selectedValue = document.getElementById("IssueType").value
+        if (selectedValue == "ウェブサイトに関する問題") {
+            window.open(("https://github.com/Game-Resources/Game-Resources.github.io/issues"), '_blank')
+        } else if (selectedValue == "コンテンツに関する問題"){
+            window.open(("https://github.com/Game-Resources/Content/issues"), '_blank')
+        } else if (selectedValue == "投稿に関する問題"){
+            window.open(("https://github.com/Game-Resources/Post/issues"), '_blank')
+        } else if (selectedValue == "Androidアプリに関する問題"){
+            window.open(("https://github.com/Game-Resources/AndroidApp/issues"), '_blank')
+        } else if (selectedValue == "GR編集サポートに関する問題"){
+            window.open(("https://github.com/Game-Resources/EditorialSupport/issues"), '_blank')
+        }
+    }
+</script>
+
+</html>

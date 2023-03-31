@@ -6,18 +6,22 @@
     <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
     <meta content="width=device-width" name="viewport">
     <meta name="robots" content="noindex">
-    <title>ゲームリソースへようこそ</title>
+    <title>ゲームリソースへようこそ | ゲームリソース</title>
     <link href="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-core/11.0.0/css/fabric.min.css"
         rel="stylesheet" />
-    <link rel="shortcut icon" href="../favicon.png">
+    <!--<link rel="shortcut icon" href="favicon.png">-->
     <style>
-        .PagePanel {
-            position: fixed;
-            bottom: 0;
+        body {
+            background-image: linear-gradient(to right, #008080, #ffffff);
+        }
+        
+        .MainIframePanel {
             width: 100%;
-            height: 44px;
+            height: 85vh;
+        }
 
-            text-align: center;
+        .MainIframe {
+            border: 0px;
         }
 
         button {
@@ -32,44 +36,87 @@
             background-color: #c0c1c1;
         }
 
-        .Text {
-            font-size: large;
+        .PagePanel {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            height: 44px;
+
+            text-align: center;
         }
     </style>
 </head>
 
 <body class="ms-Fabric" dir="ltr">
     <nav></nav>
-    <header>
-        <h1>
-            ゲームリソースへようこそ
-        </h1>
-    </header>
     <main>
-        <div class="MainPanel">
-            <p class="Text">
-                このサイトでは、ゲームの便利な資料を提供しています。
-            </p>
+        <div class="MainIframePanel">
+            <iframe class="MainIframe" id="MainIframe" width="100%" height="100%">
+
+            </iframe>
         </div>
         <div class="PagePanel">
-            <button onclick="Skip()">
-                スキップ
-            </button>
-            <button onclick="Next()">
-                次へ
-            </button>
+                <button id="SkipButton" onclick="Skip()">
+                    スキップ
+                </button>
+                <button id="BackButton" onclick="Back()">
+                    戻る
+                </button>
+                <button id="NextButton" onclick="Next()">
+                    次へ
+                </button>
+                <button id="DoneButton" onclick="Done()">
+                    完了
+                </button>
         </div>
     </main>
     <footer>
     </footer>
 </body>
 <script>
+    if (localStorage.getItem("Welcome.NowPage") == null) {
+        localStorage.setItem("Welcome.NowPage", "1")
+    }
+    var lastPage = 3
+    Update()
+
+    function Update() {
+        document.getElementById("MainIframe").src = "Data/" + localStorage.getItem("Welcome.NowPage") + "/"
+
+        if (localStorage.getItem("Welcome.NowPage") == 1) {
+            document.getElementById("DoneButton").style.display = "none"
+            document.getElementById("NextButton").style.display = "inline"
+            document.getElementById("BackButton").style.display = "none"
+        } else if (localStorage.getItem("Welcome.NowPage") == lastPage) {
+            document.getElementById("DoneButton").style.display = "inline"
+            document.getElementById("NextButton").style.display = "none"
+            document.getElementById("BackButton").style.display = "inline"
+
+        } else {
+            document.getElementById("DoneButton").style.display = "none"
+            document.getElementById("NextButton").style.display = "inline"
+            document.getElementById("BackButton").style.display = "inline"
+        }
+    }
+
     function Skip() {
         localStorage.setItem("Welcome", "")
         location.href = "../"
     }
+
+    function Back() {
+        localStorage.setItem("Welcome.NowPage", (Number(localStorage.getItem("Welcome.NowPage")) - 1).toString())
+        Update()
+    }
+
     function Next() {
-        location.href = "1/"
+        localStorage.setItem("Welcome.NowPage",  (Number(localStorage.getItem("Welcome.NowPage")) + 1).toString())
+        Update()
+    }
+
+    function Done() {
+        localStorage.setItem("Welcome", "")
+        location.href = "../"
     }
 </script>
 

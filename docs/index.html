@@ -133,17 +133,14 @@
     </main>
 </body>
 <script>
-
-    if (localStorage.getItem("Welcome") == null) {
-        location.href = "Welcome/"
-    }
-
     const url = new URL(window.location.href)
     const params = url.searchParams
     const parameterUrl = params.get("url")
 
     if (!(parameterUrl == null)) {
         document.getElementById("MainIframe").src = parameterUrl
+    } else if(localStorage.getItem("Welcome") == null){
+        location.href = "Welcome/"
     } else if (localStorage.getItem("KeepPage") == "1") {
         document.getElementById("MainIframe").src = localStorage.getItem("KeepPage.Url")
     } else {
@@ -152,10 +149,10 @@
 
 
     function ShowGame() {
-        OpenUrl("Content/Game/")
+        OpenUrl("https://game-resources.github.io/Content/Game/")
     }
     function ShowAbout() {
-        OpenUrl("Content/About/")
+        OpenUrl("https://game-resources.github.io/Content/About/")
     }
     function ShowNews() {
         OpenUrl("https://game-resources.github.io/Post/categories/#general")
@@ -189,7 +186,7 @@
     }
 
     function OpenUrl(Url) {
-        document.getElementById("MainIframe").src = Url;
+        document.getElementById("MainIframe").src = Url
     }
 </script>
 
