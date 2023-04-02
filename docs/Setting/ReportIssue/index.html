@@ -2,6 +2,7 @@
 <html>
 
 <head>
+    <link id="LinkCss" rel="stylesheet">
     <meta content="ja" http-equiv="Content-Language">
     <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
     <meta content="width=device-width" name="viewport">
@@ -11,23 +12,6 @@
         rel="stylesheet" />
     <link rel="shortcut icon" href="../../favicon.png">
     <style>
-        button {
-            border: 0px;
-            cursor: pointer;
-            height: 40px;
-            color: black;
-            background-color: #d6d7d7;
-        }
-
-        .Button {
-            border: 0px;
-            height: 44px;
-            width: 44px;
-            cursor: pointer;
-            background-size: 44px;
-            background-color: white;
-        }
-
         .CloseButton {
             background-image: url(../../Image/BackEnabledIcon.svg);
         }
@@ -82,6 +66,12 @@
     </footer>
 </body>
 <script>
+    if (localStorage.getItem("DarkMode") == "1") {
+        document.getElementById("LinkCss").href = "../../StyleDark.css"
+    } else{
+        document.getElementById("LinkCss").href = "../../Style.css"
+    }
+    
     function Close() {
         window.location.href = "../"
     }

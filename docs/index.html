@@ -2,6 +2,7 @@
 <html lang="ja">
 
 <head>
+    <link id="LinkCss" rel="stylesheet">
     <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
     <meta content="width=device-width" name="viewport">
     <title>ゲームリソース</title>
@@ -13,46 +14,6 @@
         .MainIframePanel {
             width: 100%;
             height: 75vh;
-        }
-
-        .SaveIframePanel {
-            width: 100%;
-            height: 80vh;
-        }
-
-        .PagePanel {
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-            height: 44px;
-
-            text-align: center;
-        }
-
-        footer {
-            width: 100%;
-            height: auto;
-        }
-
-        button {
-            border: 0px;
-            cursor: pointer;
-            height: 40px;
-            color: black;
-            background-color: #d6d7d7;
-        }
-
-        button:active {
-            background-color: #c0c1c1;
-        }
-
-        .Button {
-            border: 0px;
-            height: 44px;
-            width: 44px;
-            cursor: pointer;
-            background-size: 44px;
-            background-color: white;
         }
 
         .MainIframe {
@@ -133,20 +94,25 @@
     </main>
 </body>
 <script>
+    if (localStorage.getItem("DarkMode") == "1") {
+        document.getElementById("LinkCss").href = "StyleDark.css"
+    } else{
+        document.getElementById("LinkCss").href = "Style.css"
+    }
+
     const url = new URL(window.location.href)
     const params = url.searchParams
     const parameterUrl = params.get("url")
 
     if (!(parameterUrl == null)) {
         document.getElementById("MainIframe").src = parameterUrl
-    } else if(localStorage.getItem("Welcome") == null){
+    } else if (localStorage.getItem("Welcome") == null) {
         location.href = "Welcome/"
     } else if (localStorage.getItem("KeepPage") == "1") {
         document.getElementById("MainIframe").src = localStorage.getItem("KeepPage.Url")
     } else {
         ShowGame()
     }
-
 
     function ShowGame() {
         OpenUrl("https://game-resources.github.io/Content/Game/")

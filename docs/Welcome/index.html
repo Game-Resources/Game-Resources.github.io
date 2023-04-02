@@ -2,6 +2,7 @@
 <html>
 
 <head>
+    <link id="LinkCss" rel="stylesheet">
     <meta content="ja" http-equiv="Content-Language">
     <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
     <meta content="width=device-width" name="viewport">
@@ -22,18 +23,6 @@
 
         .MainIframe {
             border: 0px;
-        }
-
-        button {
-            border: 0px;
-            cursor: pointer;
-            height: 40px;
-            color: black;
-            background-color: #d6d7d7;
-        }
-
-        button:active {
-            background-color: #c0c1c1;
         }
 
         .PagePanel {
@@ -74,6 +63,12 @@
     </footer>
 </body>
 <script>
+    if (localStorage.getItem("DarkMode") == "1") {
+        document.getElementById("LinkCss").href = "../StyleDark.css"
+    } else{
+        document.getElementById("LinkCss").href = "../Style.css"
+    }
+    
     if (localStorage.getItem("Welcome.NowPage") == null) {
         localStorage.setItem("Welcome.NowPage", "1")
     }

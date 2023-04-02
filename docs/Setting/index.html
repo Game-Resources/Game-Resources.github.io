@@ -2,6 +2,7 @@
 <html>
 
 <head>
+    <link id="LinkCss" rel="stylesheet">
     <meta content="ja" http-equiv="Content-Language">
     <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
     <meta content="width=device-width" name="viewport">
@@ -11,23 +12,6 @@
         rel="stylesheet" />
     <link rel="shortcut icon" href="../favicon.png">
     <style>
-        button {
-            border: 0px;
-            cursor: pointer;
-            height: 40px;
-            color: black;
-            background-color: #d6d7d7;
-        }
-
-        .Button {
-            border: 0px;
-            height: 44px;
-            width: 44px;
-            cursor: pointer;
-            background-size: 44px;
-            background-color: white;
-        }
-
         .CloseButton {
             background-image: url(../Image/BackEnabledIcon.svg);
         }
@@ -51,7 +35,6 @@
                 一般
             </summary>
             <div>
-
                 <p>
                     <input type="checkbox" id="KeepPage" onclick="KeepPageClick()">
                     <label for="KeepPage">キープページ</label>
@@ -88,18 +71,41 @@
             </div>
 
         </details>
-
+        <details>
+            <summary>
+                試験段階の機能
+            </summary>
+            <div>
+                <p>
+                    <input type="checkbox" id="DarkMode" onclick="DarkModeClick()">
+                    <label for="DarkMode">ダークモード</label>
+                </p>
+            </div>
+        </details>
     </main>
     <footer>
     </footer>
 </body>
 <script>
+    if (localStorage.getItem("DarkMode") == "1") {
+        document.getElementById("LinkCss").href = "../StyleDark.css"
+    } else {
+        document.getElementById("LinkCss").href = "../Style.css"
+    }
+
     var keepPageCheckbox = document.getElementById("KeepPage")
     var keepPageChecked = keepPageCheckbox.checked
     if (localStorage.getItem("KeepPage") == "1") {
         keepPageCheckbox.checked = true
     } else {
         keepPageCheckbox.checked = false
+    }
+    var DarkModeCheckbox = document.getElementById("DarkMode")
+    var DarkModeChecked = DarkModeCheckbox.checked
+    if (localStorage.getItem("DarkMode") == "1") {
+        DarkModeCheckbox.checked = true
+    } else {
+        DarkModeCheckbox.checked = false
     }
 
     function Close() {
@@ -130,6 +136,19 @@
         if (result == true) {
             localStorage.clear()
             alert("リセットされました。")
+        }
+    }
+    function DarkModeClick() {
+        var DarkModeChecked = document.getElementById("DarkMode").checked
+        if (DarkModeChecked) {
+            localStorage.setItem("DarkMode", "1")
+        } else {
+            localStorage.setItem("DarkMode", "0")
+        }
+        if (localStorage.getItem("DarkMode") == "1") {
+            document.getElementById("LinkCss").href = "../StyleDark.css"
+        } else {
+            document.getElementById("LinkCss").href = "../Style.css"
         }
     }
 </script>
