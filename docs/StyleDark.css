@@ -1,6 +1,6 @@
 * {
     background-color: #121212;
-    color: #ffffff;
+    color: #e2e1e0;
 }
 
 .PagePanel {
@@ -21,7 +21,7 @@ button {
     border: 0px;
     cursor: pointer;
     height: 40px;
-    color: #ffffff;
+    color: #e2e1e0;
     background-color: #3b3b3b;
 }
 
