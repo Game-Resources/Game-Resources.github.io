@@ -18,6 +18,7 @@ button {
     height: 40px;
     color: black;
     background-color: #d6d7d7;
+    border-radius: 4px;
 }
 
 button:active {
