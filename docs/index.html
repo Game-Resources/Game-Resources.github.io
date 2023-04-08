@@ -96,7 +96,7 @@
 <script>
     if (localStorage.getItem("DarkMode") == "1") {
         document.getElementById("LinkCss").href = "StyleDark.css"
-    } else{
+    } else {
         document.getElementById("LinkCss").href = "Style.css"
     }
 
@@ -148,7 +148,10 @@
         window.location.href = "Save/"
     }
     function OpenFavorite() {
-        window.location.href = "Favorite/?url=" + (document.getElementById("MainIframe").contentWindow.location.href) + "&title=" + (document.getElementById("MainIframe").iframe.contentDocument || iframe.contentWindow.document.title)
+        var iframe = document.getElementById('MainIframe');
+        var innerDoc = iframe.contentDocument || iframe.contentWindow.document;
+        var title = innerDoc.title;
+        window.location.href = "Favorite/?url=" + (document.getElementById("MainIframe").contentWindow.location.href) + "&title=" + title
     }
 
     function OpenUrl(Url) {
