@@ -59,7 +59,8 @@
         const url = new URL(window.location.href)
         const params = url.searchParams
         const parameterUrl = params.get("url")
-        window.open(("https://game-resources.github.io/?url=" + parameterUrl), '_blank')
+        const parameterTitle = params.get("title")
+        window.open(("https://game-resources.github.io/?url=" + parameterUrl + "&title=" + parameterTitle), '_blank')
     }
 </script>
 

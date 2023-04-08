@@ -148,7 +148,7 @@
         window.location.href = "Save/"
     }
     function OpenFavorite() {
-        window.location.href = "Favorite/?url=" + (document.getElementById("MainIframe").contentWindow.location.href)
+        window.location.href = "Favorite/?url=" + (document.getElementById("MainIframe").contentWindow.location.href) + "&title=" + (document.getElementById("MainIframe").iframe.contentDocument || iframe.contentWindow.document.title)
     }
 
     function OpenUrl(Url) {
