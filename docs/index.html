@@ -148,9 +148,9 @@
         window.location.href = "Save/"
     }
     function OpenFavorite() {
-        var iframe = document.getElementById('MainIframe');
-        var innerDoc = iframe.contentDocument || iframe.contentWindow.document;
-        var title = innerDoc.title;
+        var iframe = document.getElementById('MainIframe')
+        var innerDoc = iframe.contentDocument || iframe.contentWindow.document
+        var title = innerDoc.title
         window.location.href = "Favorite/?url=" + (document.getElementById("MainIframe").contentWindow.location.href) + "&title=" + title
     }
 
