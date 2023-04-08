@@ -103,6 +103,7 @@
     const url = new URL(window.location.href)
     const params = url.searchParams
     const parameterUrl = params.get("url")
+    const parameterTitle = params.get("title")
 
     if (!(parameterUrl == null)) {
         document.getElementById("MainIframe").src = parameterUrl
@@ -112,6 +113,10 @@
         document.getElementById("MainIframe").src = localStorage.getItem("KeepPage.Url")
     } else {
         ShowGame()
+    }
+
+    if (!(parameterTitle == null)) {
+        document.title = parameterTitle
     }
 
     function ShowGame() {
