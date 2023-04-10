@@ -94,13 +94,11 @@
     </main>
 </body>
 <script>
-    var start = false
-
-    if (localStorage.getItem("DarkMode") == "1") {
-        document.getElementById("LinkCss").href = "StyleDark.css"
-    } else {
-        document.getElementById("LinkCss").href = "Style.css"
+    if ((isIe())) {
+        location.href = "Ie/"
     }
+
+    var start = false
 
     const url = new URL(window.location.href)
     const params = url.searchParams
@@ -119,6 +117,12 @@
 
     if (!(parameterTitle == null)) {
         document.title = parameterTitle
+    }
+
+    if (localStorage.getItem("DarkMode") == "1") {
+        document.getElementById("LinkCss").href = "StyleDark.css"
+    } else {
+        document.getElementById("LinkCss").href = "Style.css"
     }
 
     function ShowGame() {
@@ -168,6 +172,11 @@
 
     function OpenUrl(Url) {
         document.getElementById("MainIframe").src = Url
+    }
+
+    function isIe() {
+        var ua = navigator.userAgent;
+        return ua.indexOf('MSIE ') > -1 || ua.indexOf('Trident/') > -1;
     }
 </script>
 
