@@ -39,3 +39,7 @@ button:active {
     background-size: 44px;
     background-color: #121212;
 }
+
+.Button:active {
+    background-color: #121212;
+}

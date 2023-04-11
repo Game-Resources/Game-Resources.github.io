@@ -34,3 +34,7 @@ button:active {
     background-size: 44px;
     background-color: white;
 }
+
+.Button:active {
+    background-color: white;
+}
