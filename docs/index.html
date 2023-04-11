@@ -59,6 +59,10 @@
         .ModeFavoriteButton {
             background-image: url(Image/FavoriteIcon.svg);
         }
+
+        .ModeShareButton {
+            background-image: url(Image/ShareIcon.svg);
+        }
     </style>
 </head>
 
@@ -75,6 +79,8 @@
                 <button class="Button ModeSaveButton" onclick="OpenSave()">
                 </button>
                 <button class="Button ModeFavoriteButton" onclick="OpenFavorite()">
+                </button>
+                <button class="Button ModeShareButton" onclick="OpenShare()">
                 </button>
             </div>
             <main class="MainIframePanel">
@@ -168,6 +174,12 @@
         var innerDoc = iframe.contentDocument || iframe.contentWindow.document
         var title = innerDoc.title
         window.location.href = "Favorite/?url=" + (document.getElementById("MainIframe").contentWindow.location.href) + "&title=" + title
+    }
+    function OpenShare() {
+        var iframe = document.getElementById('MainIframe')
+        var innerDoc = iframe.contentDocument || iframe.contentWindow.document
+        var title = innerDoc.title
+        window.location.href = "Share/?url=" + (document.getElementById("MainIframe").contentWindow.location.href) + "&title=" + title
     }
 
     function OpenUrl(Url) {

@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <link id="LinkCss" rel="stylesheet">
+    <meta content="ja" http-equiv="Content-Language">
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <meta content="width=device-width" name="viewport">
+    <meta name="robots" content="noindex">
+    <title>共有 | ゲームリソース</title>
+    <link href="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-core/11.0.0/css/fabric.min.css"
+        rel="stylesheet" />
+    <link rel="shortcut icon" href="../favicon.png">
+</head>
+
+<body class="ms-Fabric" dir="ltr">
+    <nav></nav>
+    <header>
+        <h1>
+            共有
+        </h1>
+    </header>
+    <main>
+        <div>
+            <p>
+                <button onclick="Email()">
+                    メールで共有
+                </button>
+            </p>
+        </div>
+    </main>
+    <footer>
+    </footer>
+</body>
+<script>
+    if (localStorage.getItem("DarkMode") == "1") {
+        document.getElementById("LinkCss").href = "../StyleDark.css"
+    } else {
+        document.getElementById("LinkCss").href = "../Style.css"
+    }
+
+    function Email() {
+        const url = new URL(window.location.href)
+        const params = url.searchParams
+        const parameterUrl = params.get("url")
+
+        location.href = "mailto:?body=" + parameterUrl
+    }
+</script>
+
+</html>
