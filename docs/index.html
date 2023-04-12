@@ -115,6 +115,9 @@
         document.getElementById("MainIframe").src = parameterUrl
     } else if (localStorage.getItem("Welcome") == null) {
         location.href = "Welcome/"
+    } else if (!(localStorage.getItem("HomeUrl") == null)) {
+        document.getElementById("MainIframe").src = localStorage.getItem("HomeUrl")
+        localStorage.removeItem("HomeUrl")
     } else if (localStorage.getItem("KeepPage") == "1") {
         document.getElementById("MainIframe").src = localStorage.getItem("KeepPage.Url")
     } else {
@@ -164,6 +167,7 @@
     }
 
     function OpenSetting() {
+        localStorage.setItem("HomeUrl", document.getElementById("MainIframe").contentWindow.location.href)
         window.location.href = "Setting/"
     }
     function OpenSave() {
