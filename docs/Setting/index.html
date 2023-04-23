@@ -77,6 +77,10 @@
             </summary>
             <div>
                 <p>
+                    <input type="checkbox" id="ExperimentalCapabilities" onclick="ExperimentalCapabilitiesClick()">
+                    <label for="ExperimentalCapabilities">試験段階の機能を使用する</label>
+                </p>
+                <p>
                     <input type="checkbox" id="DarkMode" onclick="DarkModeClick()">
                     <label for="DarkMode">ダークモード</label>
                 </p>
@@ -106,6 +110,13 @@
         DarkModeCheckbox.checked = true
     } else {
         DarkModeCheckbox.checked = false
+    }
+    var ExperimentalCapabilitiesCheckbox = document.getElementById("ExperimentalCapabilities")
+    var ExperimentalCapabilitiesChecked = ExperimentalCapabilitiesCheckbox.checked
+    if (localStorage.getItem("ExperimentalCapabilities") == "1") {
+        ExperimentalCapabilitiesCheckbox.checked = true
+    } else {
+        ExperimentalCapabilitiesCheckbox.checked = false
     }
 
     function Close() {
@@ -149,6 +160,14 @@
             document.getElementById("LinkCss").href = "../StyleDark.css"
         } else {
             document.getElementById("LinkCss").href = "../Style.css"
+        }
+    }
+    function ExperimentalCapabilitiesClick() {
+        var ExperimentalCapabilitiesChecked = document.getElementById("ExperimentalCapabilities").checked
+        if (ExperimentalCapabilitiesChecked) {
+            localStorage.setItem("ExperimentalCapabilities", "1")
+        } else {
+            localStorage.setItem("ExperimentalCapabilities", "0")
         }
     }
 </script>

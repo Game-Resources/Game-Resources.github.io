@@ -80,7 +80,7 @@
                 </button>
                 <button class="Button ModeFavoriteButton" onclick="OpenFavorite()">
                 </button>
-                <button class="Button ModeShareButton" onclick="OpenShare()" style="display: none;">
+                <button class="Button ModeShareButton" id="ModeShareButton" onclick="OpenShare()" style="display: none;">
                 </button>
             </div>
             <main class="MainIframePanel">
@@ -132,6 +132,10 @@
         document.getElementById("LinkCss").href = "StyleDark.css"
     } else {
         document.getElementById("LinkCss").href = "Style.css"
+    }
+
+    if (localStorage.getItem("ExperimentalCapabilities") == "1") {
+        document.getElementById("ModeShareButton").style.display = "display"
     }
 
     function ShowGame() {
