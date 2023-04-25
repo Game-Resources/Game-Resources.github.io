@@ -11,10 +11,19 @@
     <link href="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-core/11.0.0/css/fabric.min.css"
         rel="stylesheet" />
     <link rel="shortcut icon" href="../favicon.png">
+    <style>
+        .CloseButton {
+            background-image: url(../Image/BackEnabledIcon.svg);
+        }
+    </style>
 </head>
 
 <body class="ms-Fabric" dir="ltr">
     <nav></nav>
+    <div class="ToolPanel">
+        <button class="Button CloseButton" onclick="Close()">
+        </button>
+    </div>
     <header>
         <h1>
             共有
@@ -37,6 +46,10 @@
         document.getElementById("LinkCss").href = "../StyleDark.css"
     } else {
         document.getElementById("LinkCss").href = "../Style.css"
+    }
+
+    function Close() {
+        window.location.href = "../"
     }
 
     function Email() {
