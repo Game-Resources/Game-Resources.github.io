@@ -36,6 +36,11 @@
                     メールで共有
                 </button>
             </p>
+            <p>
+                <button onclick="Twitter()">
+                    Twitterを使用
+                </button>
+            </p>
         </div>
     </main>
     <footer>
@@ -57,7 +62,14 @@
         const params = url.searchParams
         const parameterUrl = params.get("url")
 
-        location.href = "mailto:?body=" + parameterUrl
+        window.open("mailto:?body=" + parameterUrl, "_blank")
+    }
+    function Twitter() {
+        const url = new URL(window.location.href)
+        const params = url.searchParams
+        const parameterUrl = params.get("url")
+
+        window.open("https://twitter.com/intent/tweet?url=" + parameterUrl, "_blank")
     }
 </script>
 
