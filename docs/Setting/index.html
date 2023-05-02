@@ -39,6 +39,10 @@
                     <input type="checkbox" id="KeepPage" onclick="KeepPageClick()">
                     <label for="KeepPage">キープページ</label>
                 </p>
+                <p id="DarkModeText" style="display: none;">
+                    <input type="checkbox" id="DarkMode" onclick="DarkModeClick()">
+                    <label for="DarkMode">ダークモード</label>
+                </p>
             </div>
         </details>
         <details>
@@ -80,10 +84,6 @@
                     <input type="checkbox" id="ExperimentalCapabilities" onclick="ExperimentalCapabilitiesClick()">
                     <label for="ExperimentalCapabilities">試験段階の機能を使用する</label>
                 </p>
-                <p>
-                    <input type="checkbox" id="DarkMode" onclick="DarkModeClick()">
-                    <label for="DarkMode">ダークモード</label>
-                </p>
             </div>
         </details>
     </main>
@@ -95,6 +95,10 @@
         document.getElementById("LinkCss").href = "../StyleDark.css"
     } else {
         document.getElementById("LinkCss").href = "../Style.css"
+    }
+
+    if (localStorage.getItem("ExperimentalCapabilities") == "1") {
+        document.getElementById("DarkModeText").style.display = "block"
     }
 
     var keepPageCheckbox = document.getElementById("KeepPage")
