@@ -61,15 +61,17 @@
         const url = new URL(window.location.href)
         const params = url.searchParams
         const parameterUrl = params.get("url")
+        const parameterTitle = params.get("title")
 
-        window.open("mailto:?body=" + parameterUrl, "_blank")
+        window.open("mailto:?body=" + ("https://game-resources.github.io/?url=" + parameterUrl + "&title=" + parameterTitle), "_blank")
     }
     function Twitter() {
         const url = new URL(window.location.href)
         const params = url.searchParams
         const parameterUrl = params.get("url")
+        const parameterTitle = params.get("title")
 
-        window.open("https://twitter.com/intent/tweet?url=" + parameterUrl, "_blank")
+        window.open("https://twitter.com/intent/tweet?url=" + ("https://game-resources.github.io/?url=" + parameterUrl + "&title=" + parameterTitle), "_blank")
     }
 </script>
 
